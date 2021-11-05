@@ -1,0 +1,33 @@
+# Tomcat
+server:
+  port: 9200
+# Spring
+spring:
+  application:
+    # 应用名称
+    name: smile-auth
+  profiles:
+    # 环境配置
+    active: dev
+  cloud:
+    nacos:
+      discovery:
+        # 服务注册地址
+        server-addr: 192.168.56.10:31550
+      config:
+        # 配置中心地址
+        server-addr: 192.168.56.10:31550
+        # 配置文件格式
+        file-extension: yml
+        shared-configs:
+          - application-${spring.profiles.active}.${spring.cloud.nacos.config.file-extension}
+# sa-token配置
+sa-token:
+  # token名称 (同时也是cookie名称)
+  token-name: satoken-server
+  # OAuth2.0 配置
+  oauth2:
+    is-code: true
+    is-implicit: true
+    is-password: true
+    is-client: true
