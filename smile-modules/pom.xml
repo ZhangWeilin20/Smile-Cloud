@@ -16,6 +16,7 @@
     </description>
     <modules>
         <module>smile-system</module>
+        <module>smile-member</module>
     </modules>
     <properties>
         <maven.compiler.source>17</maven.compiler.source>

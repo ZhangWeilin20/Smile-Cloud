@@ -43,6 +43,6 @@ public class GlobalException {
     @ResponseBody
     public Res error(BaseException e){
         e.printStackTrace();
-        return Res.fail().code(Integer.valueOf(e.getCode())).message(e.getMessage());
+        return Res.fail().code(e.getCODE()).message(e.getDEFAULT_MESSAGE());
     }
 }

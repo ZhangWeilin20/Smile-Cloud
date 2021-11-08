@@ -1,9 +1,7 @@
 package com.smile.common.core.exception;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
 
 import java.io.Serial;
 
@@ -13,8 +11,6 @@ import java.io.Serial;
  */
 @EqualsAndHashCode(callSuper = true)
 @Data
-@AllArgsConstructor
-@NoArgsConstructor
 public class BaseException extends RuntimeException{
     @Serial
     private static final long serialVersionUID = 1L;
@@ -22,21 +18,21 @@ public class BaseException extends RuntimeException{
     /**
      * 所属模块
      */
-    private String module;
+    private  final String MODULE = null;
 
     /**
      * 错误码
      */
-    private String code;
+    private  final Integer CODE = null;
 
     /**
      * 错误码对应的参数
      */
-    private Object[] args;
+    private  final Object[] ARGS = new Object[0];
 
     /**
      * 错误消息
      */
-    private String defaultMessage;
+    private  final String DEFAULT_MESSAGE = null;
 
 }

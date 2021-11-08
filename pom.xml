@@ -34,6 +34,7 @@
         <spring-boot-admin.version>2.5.3</spring-boot-admin.version>
         <druid.version>1.2.8</druid.version>
         <mybatis-plus.version>3.4.3.4</mybatis-plus.version>
+        <mp-gen.version>3.5.1</mp-gen.version>
         <mysql.version>8.0.27</mysql.version>
         <lombok.version>1.18.22</lombok.version>
         <springfox.version>3.0.0</springfox.version>
@@ -122,6 +123,12 @@
                 <groupId>io.springfox</groupId>
                 <artifactId>springfox-boot-starter</artifactId>
                 <version>${springfox.version}</version>
+            </dependency>
+            <!--MP代码生成器-->
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-generator</artifactId>
+                <version>${mp-gen.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
