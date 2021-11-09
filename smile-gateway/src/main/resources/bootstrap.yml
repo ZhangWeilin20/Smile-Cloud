@@ -1,0 +1,23 @@
+# Tomcat
+server:
+  port: 9200
+# Spring
+spring:
+  application:
+    # 应用名称
+    name: smile-gateway
+  profiles:
+    # 环境配置
+    active: dev
+  cloud:
+    nacos:
+      discovery:
+        # 服务注册地址
+        server-addr: 192.168.1.11:8848
+      config:
+        # 配置中心地址
+        server-addr: 192.168.1.11:8848
+        # 配置文件格式
+        file-extension: yml
+        namespace: 38620a25-4631-4a36-b284-5c33a55a67b8
+

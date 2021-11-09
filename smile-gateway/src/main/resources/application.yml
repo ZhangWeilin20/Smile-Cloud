@@ -1,0 +1,10 @@
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: host_route
+          uri: https://www.baidu.com
+          predicates:
+            - Query=url,baidu
+    discovery:
+      enabled: true
