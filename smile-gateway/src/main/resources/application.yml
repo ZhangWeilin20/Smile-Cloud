@@ -1,10 +1,41 @@
 spring:
   cloud:
     gateway:
+      globalcors:
+        cors-configurations:
+          '[/**]':
+            allowedOrigins: "*"
+            allowedMethods: "*"
+            allowedHeaders: "*"
+            allowedOriginPatterns: "*"
+            allowCredentials: false
+        add-to-simple-url-handler-mapping: true
+
+
+
       routes:
-        - id: host_route
-          uri: https://www.baidu.com
-          predicates:
-            - Query=url,baidu
-    discovery:
+      - id: smile-member
+        uri: lb://smile-member
+        predicates:
+          - Path=/api/**
+        filters:
+          - RewritePath=/api/?(?<segment>.*), /$\{segment}
+
+      - id: smile-auth
+        uri: lb://smile-auth
+        predicates:
+          - Path=/auth/**
+        filters:
+          - RewritePath=/auth/?(?<segment>.*), /$\{segment}
+
+
+
+
+management:
+  endpoint:
+    gateway:
       enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: gateway

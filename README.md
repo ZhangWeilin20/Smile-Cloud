@@ -1,3 +1,16 @@
 # Smile-Cloud
-Smile-Cloud
-### 我是测试来哦的
+  ## 版本选择
+#####        <hutool.version>5.7.15</hutool.version>
+#####        <sa-token.version>1.27.0</sa-token.version>
+#####        <spring-boot.version>2.5.6</spring-boot.version>
+#####        <spring-cloud.version>2020.0.4</spring-cloud.version>
+#####        <spring-cloud-alibaba.version>2021.1</spring-cloud-alibaba.version>
+#####        <alibaba-nacos.version>2.0.3</alibaba-nacos.version>
+#####        <spring-boot-admin.version>2.5.3</spring-boot-admin.version>
+#####        <druid.version>1.2.8</druid.version>
+#####       <mybatis-plus.version>3.4.3.4</mybatis-plus.version>
+#####       <mp-gen.version>3.5.1</mp-gen.version>
+#####       <mysql.version>8.0.27</mysql.version>
+#####       <lombok.version>1.18.22</lombok.version>
+#####       <springfox.version>3.0.0</springfox.version>
+#####       <knife4j.version>3.0.3</knife4j.version>

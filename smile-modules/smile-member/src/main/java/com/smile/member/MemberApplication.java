@@ -5,13 +5,17 @@ import cn.hutool.log.LogFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
+import org.springframework.cloud.openfeign.EnableFeignClients;
+
 
 /**
  * @author 张维麟
  * @date 2021/11/2 14:26
  */
+
 @SpringBootApplication
 @EnableDiscoveryClient
+@EnableFeignClients
 public class MemberApplication {
     public static void main(String[] args) {
         Log log = LogFactory.get();

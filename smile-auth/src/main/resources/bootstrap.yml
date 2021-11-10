@@ -13,21 +13,12 @@ spring:
     nacos:
       discovery:
         # 服务注册地址
-        server-addr: 192.168.56.10:31550
+        server-addr: 127.0.0.1:8848
       config:
         # 配置中心地址
-        server-addr: 192.168.56.10:31550
+        server-addr: 127.0.0.1:8848
         # 配置文件格式
         file-extension: yml
+        namespace: 83628a4b-beb7-4687-94e0-6b4d7e5a5117
         shared-configs:
           - application-${spring.profiles.active}.${spring.cloud.nacos.config.file-extension}
-# sa-token配置
-sa-token:
-  # token名称 (同时也是cookie名称)
-  token-name: satoken-server
-  # OAuth2.0 配置
-  oauth2:
-    is-code: true
-    is-implicit: true
-    is-password: true
-    is-client: true

@@ -1,6 +1,6 @@
 # Tomcat
 server:
-  port: 9200
+  port: 8080
 # Spring
 spring:
   application:
@@ -13,11 +13,11 @@ spring:
     nacos:
       discovery:
         # 服务注册地址
-        server-addr: 192.168.1.11:8848
+        server-addr: 127.0.0.1:8848
       config:
         # 配置中心地址
-        server-addr: 192.168.1.11:8848
+        server-addr: 127.0.0.1:8848
         # 配置文件格式
         file-extension: yml
-        namespace: 38620a25-4631-4a36-b284-5c33a55a67b8
-
+        namespace: 0abc10fe-2caa-4693-a25d-467fd671c4c2
+        group: dev

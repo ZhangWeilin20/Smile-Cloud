@@ -12,7 +12,6 @@
         smile-common通用模块
     </description>
     <modules>
-        <module>smile-common-swagger</module>
         <module>smile-common-core</module>
     </modules>
     <artifactId>smile-common</artifactId>

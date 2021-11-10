@@ -2,7 +2,11 @@ package com.smile.member.controller;
 
 
 import com.smile.common.core.domain.Res;
+import com.smile.member.service.UmsMemberService;
+import com.smile.member.vo.UmsMemberVo;
+import io.swagger.annotations.ApiModel;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -15,14 +19,28 @@ import org.springframework.web.bind.annotation.RestController;
  * @since 2021-11-08 16:05:24
  */
 @RestController
-@RequestMapping("/member/ums-member-entity")
+@RequestMapping("/member/ums-member")
+@ApiModel(value = "UmsMemberEntity对象", description = "用户信息表")
 public class UmsMemberController {
 
+    final
+    UmsMemberService umsMemberService;
+
+    public UmsMemberController(UmsMemberService umsMemberService) {
+        this.umsMemberService = umsMemberService;
+    }
+
+    /**
+     * 添加一个
+     * @param umsMemberVo 注册信息对象
+     * @return 是否成功
+     */
     @PostMapping("/insertOne")
-    public Res insertOne(){
+    public Res insertOne(@RequestBody UmsMemberVo umsMemberVo){
 
+        umsMemberService.insertOne(umsMemberVo);
 
-        return Res.success();
+        return Res.success().code(200).message("插入成功");
     }
 
 

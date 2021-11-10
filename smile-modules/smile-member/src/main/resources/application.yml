@@ -1,6 +1,6 @@
 spring:
   datasource:
-    url: jdbc:mysql://192.168.56.10:30642/smile_ums?characterEncoding=utf8&connectTimeout=1000&socketTimeout=3000&autoReconnect=true&useUnicode=true&useSSL=false&serverTimezone=UTC
+    url: jdbc:mysql://localhost:3306/smile_ums?characterEncoding=utf8&connectTimeout=1000&socketTimeout=3000&autoReconnect=true&useUnicode=true&useSSL=false&serverTimezone=UTC
     username: root
     password: '000000'
     type: com.alibaba.druid.pool.DruidDataSource
@@ -10,10 +10,32 @@ spring:
     date-format: java.text.SimpleDateFormat
 
 mybatis-plus:
-  type-aliases-package: com.smile.**
-  mapper-locations: classpath:/xml/*.xml
+  type-aliases-package: com.smile.**.mapper
+  mapper-locations: classpath:/mapper/*.xml
+# swagger3.0 settings
 springfox:
+  swagger:
+    front:
+      base-package: com.smile.**
+      contact-name: smile
+      contact-email: smile@gmail.com
+      description: 前端测试
+      enable: true
+      group-name: "前端管理"
+      title: 前端测试
+      contact-url: 111
+      version: v1.0
+    back:
+      base-package: com.smile.member.controller
+      contact-name: smile
+      contact-email: smile@gmail.com
+      description: 后端测试
+      enable: true
+      group-name: "后端管理"
+      title: 后端测试
+      contact-url: 111
+      version: v1.0
   documentation:
-    enabled: true
     swagger-ui:
       enabled: true
+    enabled: true

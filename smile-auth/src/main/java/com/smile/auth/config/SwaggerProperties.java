@@ -1,7 +1,6 @@
-package com.smile.common.swagger.config;
+package com.smile.auth.config;
 
 import lombok.Data;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
 /**
@@ -14,12 +13,10 @@ public class SwaggerProperties {
     /**
      * 前台接口配置
      */
-    @Value("${springfox.swagger.front}")
     private SwaggerEntity front;
     /**
      * 后台接口配置
      */
-    @Value("${springfox.swagger.back}")
     private SwaggerEntity back;
     @Data
     public static class SwaggerEntity {

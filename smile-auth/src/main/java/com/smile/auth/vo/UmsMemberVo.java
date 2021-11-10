@@ -1,4 +1,4 @@
-package com.smile.member.vo;
+package com.smile.auth.vo;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class UmsMemberVo{
+public class UmsMemberVo {
 
     private String userName;
 
