@@ -18,4 +18,12 @@ public interface UmsMemberService extends IService<UmsMemberEntity> {
      * @param umsMemberVo 用户类
      */
     void insertOne(UmsMemberVo umsMemberVo);
+
+    /**
+     * 用户名密码查询账号信息
+     * @param umsMemberVo 用户名和密码封装的对象
+     * @return 数据库实体类
+     */
+    UmsMemberEntity selectOne(UmsMemberVo umsMemberVo);
+
 }

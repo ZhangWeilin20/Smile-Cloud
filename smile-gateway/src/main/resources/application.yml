@@ -10,9 +10,6 @@ spring:
             allowedOriginPatterns: "*"
             allowCredentials: false
         add-to-simple-url-handler-mapping: true
-
-
-
       routes:
       - id: smile-member
         uri: lb://smile-member

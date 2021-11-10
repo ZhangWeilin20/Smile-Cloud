@@ -21,4 +21,6 @@ spring:
         file-extension: yml
         namespace: 83628a4b-beb7-4687-94e0-6b4d7e5a5117
         shared-configs:
-          - application-${spring.profiles.active}.${spring.cloud.nacos.config.file-extension}
+          - data-id: application-${spring.profiles.active}.${spring.cloud.nacos.config.file-extension}
+            group: ${spring.profiles.active}
+            refresh: true

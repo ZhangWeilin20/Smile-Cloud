@@ -20,4 +20,12 @@ spring:
         # 配置文件格式
         file-extension: yml
         namespace: 0abc10fe-2caa-4693-a25d-467fd671c4c2
-        group: dev
+        shared-configs:
+          # 主配置文件
+          - data-id: application-${spring.profiles.active}.${spring.cloud.nacos.config.file-extension}
+            group: ${spring.profiles.active}
+            refresh: true
+          # 数据源配置文件
+          - data-id: gateway-${spring.profiles.active}.${spring.cloud.nacos.config.file-extension}
+            group: ${spring.profiles.active}
+            refresh: true

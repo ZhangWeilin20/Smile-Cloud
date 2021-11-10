@@ -14,6 +14,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -65,4 +66,35 @@ public class UmsMemberServiceImpl extends ServiceImpl<UmsMemberDao, UmsMemberEnt
 
 
     }
+
+    @Override
+    public UmsMemberEntity selectOne(UmsMemberVo umsMemberVo) {
+        BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
+        String userName = umsMemberVo.getUserName();
+        String userPassword = umsMemberVo.getUserPassword();
+        //判断输入的数据是否为空
+        if (StringUtils.isEmpty(userName) || StringUtils.isEmpty(userPassword)) {
+            throw new BaseException(ModuleConstant.SMILE_MEMBER, 10001, new String[]{userName, userPassword}, "参数校验失败");
+        }
+        QueryWrapper<UmsMemberEntity> queryWrapper = new QueryWrapper<>();
+        queryWrapper.eq("user_name", userName);
+
+        List<UmsMemberEntity> hasUmsMemberEntity = umsMemberDao.selectList(queryWrapper);
+        if (hasUmsMemberEntity.isEmpty()) {
+            throw new BaseException(ModuleConstant.SMILE_MEMBER, 20002, new String[]{userName}, "用户不存在，请先注册");
+        }
+        HashMap<Object,UmsMemberEntity> map = new HashMap<>(16);
+
+        hasUmsMemberEntity.forEach( t->{
+            boolean matches = bCryptPasswordEncoder.matches(userPassword, t.getUserPassword());
+            if (matches) {
+                map.put(t.getUserName(),t);
+            }else {
+                throw new BaseException(ModuleConstant.SMILE_MEMBER, 10001, new String[]{userPassword}, "密码错误");
+            }
+        });
+
+        return map.get(userName);
+    }
+
 }

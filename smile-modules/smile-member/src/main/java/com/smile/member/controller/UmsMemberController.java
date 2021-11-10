@@ -2,6 +2,7 @@ package com.smile.member.controller;
 
 
 import com.smile.common.core.domain.Res;
+import com.smile.member.entity.UmsMemberEntity;
 import com.smile.member.service.UmsMemberService;
 import com.smile.member.vo.UmsMemberVo;
 import io.swagger.annotations.ApiModel;
@@ -9,6 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
 
 /**
  * <p>
@@ -19,7 +21,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @since 2021-11-08 16:05:24
  */
 @RestController
-@RequestMapping("/member/ums-member")
+@RequestMapping("/member")
 @ApiModel(value = "UmsMemberEntity对象", description = "用户信息表")
 public class UmsMemberController {
 
@@ -43,7 +45,16 @@ public class UmsMemberController {
         return Res.success().code(200).message("插入成功");
     }
 
-
+    /**
+     * 登录查询
+     * @param umsMemberVo 登录信息对象
+     * @return 是否成功
+     */
+    @PostMapping("/selectOne")
+    public Res selectOne(@RequestBody UmsMemberVo umsMemberVo){
+        UmsMemberEntity umsMemberEntity =  umsMemberService.selectOne(umsMemberVo);
+        return Res.success().code(200).message("查询成功").data("entity",umsMemberEntity);
+    }
 
 }
 

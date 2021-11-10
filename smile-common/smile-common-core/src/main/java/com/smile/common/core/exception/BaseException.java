@@ -37,6 +37,6 @@ public class BaseException extends RuntimeException{
     /**
      * 错误消息
      */
-    private   String DEFAULT_MESSAGE = null;
+    private   String MESSAGE = null;
 
 }

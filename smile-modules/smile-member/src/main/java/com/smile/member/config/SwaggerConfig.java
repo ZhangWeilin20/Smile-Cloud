@@ -3,6 +3,7 @@ package com.smile.member.config;
 import com.github.xiaoymin.knife4j.spring.annotations.EnableKnife4j;
 import io.swagger.models.auth.In;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
@@ -23,6 +24,7 @@ import java.util.List;
  * @author 张维麟
  * @date 2021/11/2 13:15
  */
+@RefreshScope
 @EnableKnife4j
 @EnableOpenApi
 @Configuration

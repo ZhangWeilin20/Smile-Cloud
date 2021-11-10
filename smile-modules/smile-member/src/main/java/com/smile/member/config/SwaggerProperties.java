@@ -2,11 +2,13 @@ package com.smile.member.config;
 
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 
 /**
  * @author 张维麟
  * @date 2021/11/2 13:22
  */
+@RefreshScope
 @ConfigurationProperties(prefix = "springfox.swagger")
 @Data
 public class SwaggerProperties {
