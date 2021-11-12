@@ -24,6 +24,9 @@ spring:
           - data-id: application-${spring.profiles.active}.${spring.cloud.nacos.config.file-extension}
             group: ${spring.profiles.active}
             refresh: true
+    sentinel:
+      transport:
+        dashboard: 127.0.0.1:8850
   # 配置业务使用的 Redis 连接
   redis:
     # Redis数据库索引（默认为0）
@@ -46,3 +49,12 @@ spring:
         max-idle: 10
         # 连接池中的最小空闲连接
         min-idle: 0
+feign:
+  sentinel:
+    enabled: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'

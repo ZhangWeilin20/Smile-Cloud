@@ -29,3 +29,16 @@ spring:
           - data-id: datasource-${spring.profiles.active}.${spring.cloud.nacos.config.file-extension}
             group: ${spring.profiles.active}
             refresh: true
+
+
+    sentinel:
+      transport:
+        dashboard: 127.0.0.1:8850
+feign:
+  sentinel:
+    enabled: true
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
