@@ -18,7 +18,6 @@
         <maven.compiler.target>17</maven.compiler.target>
         <smile-common.version>1.0-SNAPSHOT</smile-common.version>
         <sa-token.version>1.28.0</sa-token.version>
-        <sa-token-jwt.version>1.28.0</sa-token-jwt.version>
     </properties>
     <dependencies>
         <dependency>
@@ -75,7 +74,6 @@
             <artifactId>sa-token-spring-boot-starter</artifactId>
             <version>${sa-token.version}</version>
         </dependency>
-
         <dependency>
             <groupId>cn.dev33</groupId>
             <artifactId>sa-token-oauth2</artifactId>
@@ -85,7 +83,23 @@
         <dependency>
             <groupId>cn.dev33</groupId>
             <artifactId>sa-token-jwt</artifactId>
-            <version>${sa-token-jwt.version}</version>
+            <version>${sa-token.version}</version>
+        </dependency>
+        <!-- Sa-Token插件：权限缓存与业务缓存分离 -->
+        <dependency>
+            <groupId>cn.dev33</groupId>
+            <artifactId>sa-token-alone-redis</artifactId>
+            <version>${sa-token.version}</version>
+        </dependency>
+        <!-- Sa-Token 整合 Redis （使用jackson序列化方式） -->
+        <dependency>
+            <groupId>cn.dev33</groupId>
+            <artifactId>sa-token-dao-redis-jackson</artifactId>
+            <version>${sa-token.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-pool2</artifactId>
         </dependency>
     </dependencies>
 </project>

@@ -7,5 +7,5 @@ package com.smile.common.core.constant;
 
 public class ModuleConstant {
     public static final String SMILE_MEMBER = "smile-member";
-
+    public static final String SMILE_GATEWAY = "smile-gateway";
 }

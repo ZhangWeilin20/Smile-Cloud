@@ -17,13 +17,13 @@ public interface UmsMemberService extends IService<UmsMemberEntity> {
      * 添加一个用户
      * @param umsMemberVo 用户类
      */
-    void insertOne(UmsMemberVo umsMemberVo);
+    void doRegister(UmsMemberVo umsMemberVo);
 
     /**
      * 用户名密码查询账号信息
      * @param umsMemberVo 用户名和密码封装的对象
      * @return 数据库实体类
      */
-    UmsMemberEntity selectOne(UmsMemberVo umsMemberVo);
+    UmsMemberEntity doLogin(UmsMemberVo umsMemberVo);
 
 }

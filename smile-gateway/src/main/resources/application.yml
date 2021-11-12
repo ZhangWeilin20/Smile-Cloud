@@ -14,9 +14,9 @@ spring:
       - id: smile-member
         uri: lb://smile-member
         predicates:
-          - Path=/api/**
+          - Path=/member/**
         filters:
-          - RewritePath=/api/?(?<segment>.*), /$\{segment}
+          - RewritePath=/member/?(?<segment>.*), /$\{segment}
 
       - id: smile-auth
         uri: lb://smile-auth

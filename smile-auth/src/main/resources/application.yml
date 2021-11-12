@@ -5,18 +5,70 @@ sa-token:
   # token有效期，单位s 默认30天, -1代表永不过期
   timeout: 600
   # token临时有效期 (指定时间内无操作就视为token过期) 单位: 秒
-  activity-timeout: -1
+  activity-timeout: 300
   # 是否允许同一账号并发登录 (为true时允许一起登录, 为false时新登录挤掉旧登录)
-  is-concurrent: true
+  is-concurrent: false
   # 在多人登录同一账号时，是否共用一个token (为true时所有登录共用一个token, 为false时每次登录新建一个token)
   is-share: false
   # token风格
   token-style: tik
   # 是否输出操作日志
   is-log: true
-
   # jwt秘钥
-  jwt-secret-key: zhangweilin //eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJsb2dpbklkIjoxMDAwMSwicm4iOiJRdXZkbkp6RDRLdVRDNklRQk52VXdnMjNmbHBCeUcxTyJ9.qlm46y4sINddl94fbi1ChjQsRmpbWXiW6Em6Vu0UcRE
+  jwt-secret-key: zhangweilin
+  is-read-cookie: true
+  is-read-head: true
+  is-read-body: true
+
+  # -------------- SSO-模式一相关配置  (非模式一不需要配置)
+  # cookie:
+  # 配置Cookie作用域
+  # domain: stp.com
+
+  # ------- SSO-模式二相关配置
+  sso:
+    # Ticket有效期 (单位: 秒)，默认五分钟
+    ticket-timeout: 300
+    # 所有允许的授权回调地址
+    allow-url: "*"
+    # 是否打开单点注销功能
+    is-slo: true
+
+    # ------- SSO-模式三相关配置 （下面的配置在SSO模式三并且 is-slo=true 时打开） -------
+    # 是否打开模式三
+    isHttp: true
+    # 接口调用秘钥（用于SSO模式三的单点注销功能）
+    secretkey: kQwIOrYvnXmSDkwEiFngrKidMcdrgKor
+    # ---- 除了以上配置项，你还需要为 Sa-Token 配置http请求处理器（文档有步骤说明）
+
+
+  # 配置 Sa-Token 单独使用的 Redis 连接
+  alone-redis:
+    # Redis数据库索引（默认为0）
+    database: 2
+    # Redis服务器地址
+    host: localhost
+    # Redis服务器连接端口
+    port: 6379
+    # Redis服务器连接密码（默认为空）
+    password:
+    # 连接超时时间
+    timeout: 10s
+    lettuce:
+      pool:
+        # 连接池最大连接数
+        max-active: 200
+        # 连接池最大阻塞等待时间（使用负值表示没有限制）
+        max-wait: -1ms
+        # 连接池中的最大空闲连接
+        max-idle: 10
+        # 连接池中的最小空闲连接
+        min-idle: 0
+
+
+
+
+
 # swagger3.0 settings
 springfox:
   swagger:

@@ -32,7 +32,7 @@
         </dependency>
 ## 2：主启动类添加注解，排除自动注入类
 
-        @SpringBootApplication(exclude = { DataSourceAutoConfiguration.class})
+        @SpringBootApplication(exclude = { DataSourceAutoConfiguration.class},scanBasePackages = "com.smile.**")
         @EnableDiscoveryClient
 ## 3：配置yml
     
@@ -40,3 +40,4 @@
 ####1: 启动类必须排除数据库自动导入依赖
 ####2: pom依赖不能引入 spring-boot-starter-web 依赖
 ####3: 若需要使用负载均衡必须引入 spring-cloud-loadbalancer 依赖，并且服务发现必须配置在一个group中
+####4: 启动类添加scanBasePackages = "com.smile.**"，解决微服务自定义异常无效

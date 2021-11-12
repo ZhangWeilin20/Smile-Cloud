@@ -16,8 +16,8 @@ public class GlobalException {
      * @param e 异常
      * @return 异常信息
      */
-    @ExceptionHandler(Exception.class)
     @ResponseBody
+    @ExceptionHandler(Exception.class)
     public Res error(Exception e) {
         e.printStackTrace();
         return Res.fail().message("执行Exception异常处理");
@@ -27,8 +27,8 @@ public class GlobalException {
      * @param e 异常
      * @return 异常信息
      */
-    @ExceptionHandler(ArithmeticException.class)
     @ResponseBody
+    @ExceptionHandler(ArithmeticException.class)
     public Res error(ArithmeticException e){
         e.printStackTrace();
         return Res.fail().message("执行ArithmeticException异常处理");
@@ -39,10 +39,10 @@ public class GlobalException {
      * @param e 异常
      * @return 异常信息
      */
-    @ExceptionHandler(BaseException.class)
     @ResponseBody
+    @ExceptionHandler(BaseException.class)
     public Res error(BaseException e){
         e.printStackTrace();
-        return Res.fail().code(e.getCODE()).message(e.getMESSAGE());
+        return Res.fail().code(e.getCODE()).message(e.getMESSAGE()).data("MODULE",e.getMODULE()).data("ARGS",e.getARGS());
     }
 }

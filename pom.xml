@@ -81,11 +81,7 @@
                 <version>${alibaba-nacos.version}</version>
             </dependency>
             <!--  SpringBoot 监控客户端 -->
-            <dependency>
-                <groupId>de.codecentric</groupId>
-                <artifactId>spring-boot-admin-starter-client</artifactId>
-                <version>${spring-boot-admin.version}</version>
-            </dependency>
+      
             <!-- 数据库连接池 -->
             <dependency>
                 <groupId>com.alibaba</groupId>

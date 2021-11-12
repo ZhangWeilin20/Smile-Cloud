@@ -19,8 +19,8 @@
     </resultMap>
 
     <!-- 通用查询结果列 -->
-    <sql id="Base_Column_List">
+ <!--   <sql id="Base_Column_List">
         id, id_card, user_name, user_password, user_nickname, user_mobile, user_email, user_avatar, user_gender, is_deleted, create_time, update_time
-    </sql>
+    </sql>-->
 
 </mapper>

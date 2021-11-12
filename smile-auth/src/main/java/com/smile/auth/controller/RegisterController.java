@@ -1,6 +1,6 @@
 package com.smile.auth.controller;
 
-import com.smile.auth.feign.UmsMemberService;
+import com.smile.auth.service.AuthRegisterService;
 import com.smile.auth.vo.UmsMemberVo;
 import com.smile.common.core.domain.Res;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -16,16 +16,19 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/auth")
 public class RegisterController {
     final
-    UmsMemberService umsMemberService;
+    AuthRegisterService authRegisterService;
 
-    public RegisterController(UmsMemberService umsMemberService) {
-        this.umsMemberService = umsMemberService;
+    public RegisterController(AuthRegisterService authRegisterService) {
+        this.authRegisterService = authRegisterService;
     }
 
+    /**
+     * 注册
+     * @param umsMemberVo 注册对象
+     * @return 响应
+     */
     @PostMapping("/register")
-    public Res register(@RequestBody UmsMemberVo umsMemberVo){
-        umsMemberService.insertOne(umsMemberVo);
-        return Res.success().code(200).message("注册成功");
+    public Res doRegister(@RequestBody UmsMemberVo umsMemberVo){
+        return authRegisterService.doRegister(umsMemberVo);
     }
-
 }

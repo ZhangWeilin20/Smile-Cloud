@@ -14,7 +14,7 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
  * @date 2021/11/2 14:26
  */
 
-@SpringBootApplication
+@SpringBootApplication(scanBasePackages = "com.smile.**")
 @EnableDiscoveryClient
 @EnableFeignClients
 @RefreshScope

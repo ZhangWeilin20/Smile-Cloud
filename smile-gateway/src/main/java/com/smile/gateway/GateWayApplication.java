@@ -12,7 +12,7 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
  * @author 张维麟
  * @date 2021/11/2 14:26
  */
-@SpringBootApplication(exclude = { DataSourceAutoConfiguration.class})
+@SpringBootApplication(exclude = { DataSourceAutoConfiguration.class},scanBasePackages = "com.smile.**")
 @EnableDiscoveryClient
 @EnableFeignClients
 public class GateWayApplication {

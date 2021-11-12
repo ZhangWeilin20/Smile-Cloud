@@ -1,13 +1,10 @@
 package com.smile.auth.controller;
 
 import cn.dev33.satoken.stp.StpUtil;
-import com.smile.auth.feign.UmsMemberService;
+import com.smile.auth.service.AuthLoginService;
 import com.smile.auth.vo.UmsMemberVo;
 import com.smile.common.core.domain.Res;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * @author 张维麟
@@ -17,17 +14,36 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/auth")
 public class LoginController {
     final
-    UmsMemberService umsMemberService;
+    AuthLoginService authLoginService;
 
-    public LoginController(UmsMemberService umsMemberService) {
-        this.umsMemberService = umsMemberService;
+    public LoginController(AuthLoginService authLoginService) {
+        this.authLoginService = authLoginService;
     }
-
+    /**
+     * 登录
+     * @param umsMemberVo 登录对象
+     * @return 响应
+     */
     @PostMapping("/login")
-    public Res selectOne(@RequestBody UmsMemberVo umsMemberVo) {
-        umsMemberService.selectOne(umsMemberVo);
-        StpUtil.login(10001);
-        return Res.success().code(200).message("登录成功");
+    public Res doLogin(@RequestBody UmsMemberVo umsMemberVo) {
+        return authLoginService.doLogin(umsMemberVo);
+    }
+    /**
+     *  查询登录状态
+     */
+
+    @GetMapping("isLogin")
+    public Res isLogin() {
+        return Res.success().data("是否登录" , StpUtil.isLogin());
+    }
+    /**
+     *   测试注销
+     */
+
+    @GetMapping("logout")
+    public Res logout() {
+        StpUtil.logout();
+        return Res.success();
     }
 
 }

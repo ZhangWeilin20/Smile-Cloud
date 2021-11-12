@@ -38,9 +38,9 @@ public class UmsMemberController {
      * @return 是否成功
      */
     @PostMapping("/insertOne")
-    public Res insertOne(@RequestBody UmsMemberVo umsMemberVo){
+    public Res doRegister(@RequestBody UmsMemberVo umsMemberVo){
 
-        umsMemberService.insertOne(umsMemberVo);
+        umsMemberService.doRegister(umsMemberVo);
 
         return Res.success().code(200).message("插入成功");
     }
@@ -51,8 +51,8 @@ public class UmsMemberController {
      * @return 是否成功
      */
     @PostMapping("/selectOne")
-    public Res selectOne(@RequestBody UmsMemberVo umsMemberVo){
-        UmsMemberEntity umsMemberEntity =  umsMemberService.selectOne(umsMemberVo);
+    public Res doLogin(@RequestBody UmsMemberVo umsMemberVo) {
+        UmsMemberEntity umsMemberEntity =  umsMemberService.doLogin(umsMemberVo);
         return Res.success().code(200).message("查询成功").data("entity",umsMemberEntity);
     }
 

@@ -14,10 +14,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 public interface UmsMemberService {
 
     @PostMapping("/member/insertOne")
-    Res insertOne(@RequestBody UmsMemberVo umsMemberVo);
+    Res doRegister(@RequestBody UmsMemberVo umsMemberVo);
 
 
     @PostMapping("/member/selectOne")
-    Res selectOne(@RequestBody UmsMemberVo umsMemberVo);
+    Res doLogin(@RequestBody UmsMemberVo umsMemberVo);
 
 }

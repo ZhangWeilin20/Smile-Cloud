@@ -36,7 +36,7 @@ public class UmsMemberServiceImpl extends ServiceImpl<UmsMemberDao, UmsMemberEnt
     }
 
     @Override
-    public void insertOne(UmsMemberVo umsMemberVo) {
+    public void doRegister(UmsMemberVo umsMemberVo) {
         BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
         String userName = umsMemberVo.getUserName();
         String userPassword = bCryptPasswordEncoder.encode(umsMemberVo.getUserPassword());
@@ -68,7 +68,7 @@ public class UmsMemberServiceImpl extends ServiceImpl<UmsMemberDao, UmsMemberEnt
     }
 
     @Override
-    public UmsMemberEntity selectOne(UmsMemberVo umsMemberVo) {
+    public UmsMemberEntity doLogin(UmsMemberVo umsMemberVo) {
         BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
         String userName = umsMemberVo.getUserName();
         String userPassword = umsMemberVo.getUserPassword();
@@ -93,7 +93,6 @@ public class UmsMemberServiceImpl extends ServiceImpl<UmsMemberDao, UmsMemberEnt
                 throw new BaseException(ModuleConstant.SMILE_MEMBER, 10001, new String[]{userPassword}, "密码错误");
             }
         });
-
         return map.get(userName);
     }
 
