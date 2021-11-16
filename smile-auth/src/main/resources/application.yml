@@ -19,7 +19,6 @@ sa-token:
   is-read-cookie: true
   is-read-head: true
   is-read-body: true
-
   # -------------- SSO-模式一相关配置  (非模式一不需要配置)
   # cookie:
   # 配置Cookie作用域
@@ -64,35 +63,6 @@ sa-token:
         max-idle: 10
         # 连接池中的最小空闲连接
         min-idle: 0
-
-
-
-
-
-# swagger3.0 settings
-springfox:
-  swagger:
-    front:
-      base-package: com.smile.auth.web
-      contact-name: smile
-      contact-email: smile@gmail.com
-      description: 前端测试
-      enable: true
-      group-name: "前端管理"
-      title: 前端测试
-      contact-url: 111
-      version: v1.0
-    back:
-      base-package: com.smile.auth.controller
-      contact-name: smile
-      contact-email: smile@gmail.com
-      description: 后端测试
-      enable: true
-      group-name: "后端管理"
-      title: 后端测试
-      contact-url: 111
-      version: v1.0
-  documentation:
-    swagger-ui:
-      enabled: true
-    enabled: true
+  is-print: false
+knife4j:
+  enable: false

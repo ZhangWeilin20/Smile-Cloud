@@ -6,6 +6,14 @@ spring:
   application:
     # 应用名称
     name: smile-auth
+  zipkin:
+    base-url: http://127.0.0.1:9411/
+    discovery-client-enabled: false
+    sender:
+      type: web
+  sleuth:
+    sampler:
+      probability: 1
   profiles:
     # 环境配置
     active: dev
@@ -58,3 +66,8 @@ management:
     web:
       exposure:
         include: '*'
+logging:
+  level:
+    org.springframework.web.servlet.DispatcherServlet: DEBUG
+    org.springframework.cloud.openfeign: DEBUG
+    org.springframework.cloud.sleuth: DEBUG

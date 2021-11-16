@@ -5,7 +5,6 @@ import com.smile.auth.vo.UmsMemberVo;
 import com.smile.common.core.domain.Res;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -13,7 +12,6 @@ import org.springframework.web.bind.annotation.RestController;
  * @date 2021/11/10 10:12
  */
 @RestController
-@RequestMapping("/auth")
 public class RegisterController {
     final
     AuthRegisterService authRegisterService;

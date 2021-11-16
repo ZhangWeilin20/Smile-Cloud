@@ -8,7 +8,6 @@ import com.smile.member.vo.UmsMemberVo;
 import io.swagger.annotations.ApiModel;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 
@@ -21,7 +20,6 @@ import org.springframework.web.bind.annotation.RestController;
  * @since 2021-11-08 16:05:24
  */
 @RestController
-@RequestMapping("/member")
 @ApiModel(value = "UmsMemberEntity对象", description = "用户信息表")
 public class UmsMemberController {
 

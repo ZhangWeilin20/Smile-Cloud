@@ -13,11 +13,11 @@ import org.springframework.web.bind.annotation.RequestBody;
 @FeignClient("smile-member")
 public interface UmsMemberService {
 
-    @PostMapping("/member/insertOne")
+    @PostMapping("/insertOne")
     Res doRegister(@RequestBody UmsMemberVo umsMemberVo);
 
 
-    @PostMapping("/member/selectOne")
+    @PostMapping("/selectOne")
     Res doLogin(@RequestBody UmsMemberVo umsMemberVo);
 
 }

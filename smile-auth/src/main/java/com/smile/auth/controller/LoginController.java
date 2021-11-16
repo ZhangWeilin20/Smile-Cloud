@@ -4,14 +4,18 @@ import cn.dev33.satoken.stp.StpUtil;
 import com.smile.auth.service.AuthLoginService;
 import com.smile.auth.vo.UmsMemberVo;
 import com.smile.common.core.domain.Res;
-import org.springframework.web.bind.annotation.*;
+import io.swagger.annotations.ApiModel;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
 
 /**
  * @author 张维麟
  * @date 2021/11/10 15:29
  */
 @RestController
-@RequestMapping("/auth")
+@ApiModel(value = "对象", description = "登录")
 public class LoginController {
     final
     AuthLoginService authLoginService;

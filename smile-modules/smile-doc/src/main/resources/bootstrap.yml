@@ -1,11 +1,11 @@
 # Tomcat
 server:
-  port: 8081
+  port: 89
 # Spring
 spring:
   application:
     # 应用名称
-    name: smile-system
+    name: smile-doc
   profiles:
     # 环境配置
     active: dev
@@ -19,23 +19,23 @@ spring:
         server-addr: 127.0.0.1:8848
         # 配置文件格式
         file-extension: yml
-        namespace: 82aee1c2-6aa7-4938-a344-f8b21097ac8c
+        namespace: f351a92e-2e1d-4aa6-9ebe-b3353ee06365
         shared-configs:
           # 主配置文件
           - data-id: application-${spring.profiles.active}.${spring.cloud.nacos.config.file-extension}
             group: ${spring.profiles.active}
             refresh: true
           # 数据源配置文件
-          - data-id: datasource-${spring.profiles.active}.${spring.cloud.nacos.config.file-extension}
+          - data-id: gateway-${spring.profiles.active}.${spring.cloud.nacos.config.file-extension}
             group: ${spring.profiles.active}
             refresh: true
     sentinel:
       transport:
         dashboard: 127.0.0.1:8850
-feign:
-  sentinel:
-    enabled: true
 management:
+  endpoint:
+    gateway:
+      enabled: true
   endpoints:
     web:
       exposure:

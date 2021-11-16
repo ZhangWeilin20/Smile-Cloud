@@ -11,8 +11,8 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
  * @author 张维麟
  * @date 2021/11/2 14:26
  */
-@SpringBootApplication(exclude = {DataSourceAutoConfiguration.class })
 @EnableDiscoveryClient
+@SpringBootApplication(exclude = {DataSourceAutoConfiguration.class })
 public class SystemApplication {
     public static void main(String[] args) {
         Log log = LogFactory.get();

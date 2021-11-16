@@ -17,34 +17,8 @@ sa-token:
   is-log: false
   # jwt秘钥
   jwt-secret-key: zhangweilin
+  is-print: false
 
 mybatis-plus:
   type-aliases-package: com.smile.**.mapper
   mapper-locations: classpath:/mapper/*.xml
-# swagger3.0 settings
-springfox:
-  swagger:
-    front:
-      base-package: com.smile.**
-      contact-name: smile
-      contact-email: smile@gmail.com
-      description: 前端测试
-      enable: true
-      group-name: "前端管理"
-      title: 前端测试
-      contact-url: 111
-      version: v1.0
-    back:
-      base-package: com.smile.member.controller
-      contact-name: smile
-      contact-email: smile@gmail.com
-      description: 后端测试
-      enable: true
-      group-name: "后端管理"
-      title: 后端测试
-      contact-url: 111
-      version: v1.0
-  documentation:
-    swagger-ui:
-      enabled: true
-    enabled: true

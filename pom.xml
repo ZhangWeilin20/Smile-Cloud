@@ -37,8 +37,8 @@
         <mp-gen.version>3.5.1</mp-gen.version>
         <mysql.version>8.0.27</mysql.version>
         <lombok.version>1.18.22</lombok.version>
-        <springfox.version>3.0.0</springfox.version>
         <knife4j.version>3.0.3</knife4j.version>
+        <knife4j-agg.version>2.0.9</knife4j-agg.version>
     </properties>
 
     <!-- 依赖声明 -->
@@ -107,14 +107,19 @@
                 <optional>true</optional>
             </dependency>
             <dependency>
-                <groupId>io.springfox</groupId>
-                <artifactId>springfox-boot-starter</artifactId>
-                <version>${springfox.version}</version>
+                <groupId>com.github.xiaoymin</groupId>
+                <artifactId>knife4j-micro-spring-boot-starter</artifactId>
+                <version>${knife4j.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.github.xiaoymin</groupId>
                 <artifactId>knife4j-spring-boot-starter</artifactId>
                 <version>${knife4j.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.xiaoymin</groupId>
+                <artifactId>knife4j-aggregation-spring-boot-starter</artifactId>
+                <version>${knife4j-agg.version}</version>
             </dependency>
             <!--MP代码生成器-->
             <dependency>
