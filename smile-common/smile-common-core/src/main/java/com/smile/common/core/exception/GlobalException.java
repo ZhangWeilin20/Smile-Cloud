@@ -1,6 +1,6 @@
 package com.smile.common.core.exception;
 
-import com.smile.common.core.domain.Res;
+import com.smile.common.core.domain.R;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -18,9 +18,9 @@ public class GlobalException {
      */
     @ResponseBody
     @ExceptionHandler(Exception.class)
-    public Res error(Exception e) {
+    public R error(Exception e) {
         e.printStackTrace();
-        return Res.fail().message("执行Exception异常处理");
+        return R.fail().message("执行Exception异常处理");
     }
     /**
      * 特定异常处理
@@ -29,9 +29,9 @@ public class GlobalException {
      */
     @ResponseBody
     @ExceptionHandler(ArithmeticException.class)
-    public Res error(ArithmeticException e){
+    public R error(ArithmeticException e){
         e.printStackTrace();
-        return Res.fail().message("执行ArithmeticException异常处理");
+        return R.fail().message("执行ArithmeticException异常处理");
     }
 
     /**
@@ -41,8 +41,8 @@ public class GlobalException {
      */
     @ResponseBody
     @ExceptionHandler(BaseException.class)
-    public Res error(BaseException e){
+    public R error(BaseException e){
         e.printStackTrace();
-        return Res.fail().code(e.getCODE()).message(e.getMESSAGE()).data("MODULE",e.getMODULE()).data("ARGS",e.getARGS());
+        return R.fail().code(e.getCODE()).message(e.getMESSAGE()).data("MODULE",e.getMODULE()).data("ARGS",e.getARGS());
     }
 }

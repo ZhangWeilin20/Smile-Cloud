@@ -1,7 +1,7 @@
 package com.smile.auth.service;
 
-import com.smile.auth.vo.UmsMemberVo;
-import com.smile.common.core.domain.Res;
+import com.smile.auth.vo.SysUserVo;
+import com.smile.common.core.domain.R;
 
 /**
  * @author 张维麟
@@ -10,9 +10,9 @@ import com.smile.common.core.domain.Res;
 public interface AuthRegisterService {
      /**
       * 注册
-      * @param umsMemberVo 注册
+      * @param syUserVo 注册
       * @return  全局响应体
       */
-     Res doRegister(UmsMemberVo umsMemberVo);
+     R doRegister(SysUserVo syUserVo);
 
 }

@@ -11,10 +11,10 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class UmsMemberVo{
+public class SysUserVo {
 
-    private String userName;
+    private String account;
 
-    private String userPassword;
+    private String password;
 
 }

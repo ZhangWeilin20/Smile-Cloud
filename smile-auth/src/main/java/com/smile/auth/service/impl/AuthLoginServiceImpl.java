@@ -1,10 +1,12 @@
 package com.smile.auth.service.impl;
 
+import cn.dev33.satoken.stp.SaLoginModel;
+import cn.dev33.satoken.stp.SaTokenInfo;
 import cn.dev33.satoken.stp.StpUtil;
-import com.smile.auth.feign.UmsMemberService;
+import cn.hutool.system.SystemUtil;
+import com.smile.auth.feign.SysUserService;
 import com.smile.auth.service.AuthLoginService;
-import com.smile.auth.vo.UmsMemberVo;
-import com.smile.common.core.domain.Res;
+import com.smile.auth.vo.SysUserVo;
 import org.springframework.stereotype.Service;
 
 /**
@@ -14,17 +16,17 @@ import org.springframework.stereotype.Service;
 @Service
 public class AuthLoginServiceImpl implements AuthLoginService {
     final
-    UmsMemberService umsMemberService;
-    public AuthLoginServiceImpl(UmsMemberService umsMemberService) {
-        this.umsMemberService = umsMemberService;
+    SysUserService sysUserService;
+    public AuthLoginServiceImpl(SysUserService sysUserService) {
+        this.sysUserService = sysUserService;
     }
 
 
     @Override
-    public Res doLogin(UmsMemberVo umsMemberVo) {
-        Res res = umsMemberService.doLogin(umsMemberVo);
-        StpUtil.login(umsMemberVo.getUserName());
-        return res;
+    public SaTokenInfo doLogin(SysUserVo syUserVo) {
+        sysUserService.doLogin(syUserVo);
+        StpUtil.login(syUserVo.getAccount(), new SaLoginModel().setDevice(SystemUtil.getOsInfo().getName()));
+        return StpUtil.getTokenInfo();
     }
 
 }

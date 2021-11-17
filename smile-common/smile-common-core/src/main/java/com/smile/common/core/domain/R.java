@@ -11,7 +11,7 @@ import java.util.Map;
  * @date 2021/11/2 12:24
  */
 @Data
-public class Res {
+public class R {
 
     private Boolean success;
 
@@ -24,43 +24,43 @@ public class Res {
     /**
      * 构造方法私有化
      */
-    private Res() {
+    private R() {
 
     }
 
-    public static Res success() {
-        Res res = new Res();
-        res.setSuccess(true);
-        res.setCode(HttpStatus.HTTP_OK);
-        res.setMessage("Success");
-        return res;
+    public static R success() {
+        R r = new R();
+        r.setSuccess(true);
+        r.setCode(HttpStatus.HTTP_OK);
+        r.setMessage("Success");
+        return r;
     }
 
-    public static Res fail() {
-        Res res = new Res();
-        res.setSuccess(false);
-        res.setCode(HttpStatus.HTTP_BAD_REQUEST);
-        res.setMessage("Fail");
-        return res;
+    public static R fail() {
+        R r = new R();
+        r.setSuccess(false);
+        r.setCode(HttpStatus.HTTP_BAD_REQUEST);
+        r.setMessage("Fail");
+        return r;
     }
 
-    public Res success(Boolean success) {
+    public R success(Boolean success) {
         this.setSuccess(success);
         return this;
     }
-    public Res code(Integer code){
+    public R code(Integer code){
         this.setCode(code);
         return this;
     }
-    public Res message(String message){
+    public R message(String message){
         this.setMessage(message);
         return this;
     }
-    public Res data(String k, Object v){
+    public R data(String k, Object v){
         this.data.put(k, v);
         return this;
     }
-    public Res data(Map<String, Object> map){
+    public R data(Map<String, Object> map){
         this.setData(map);
         return this;
     }

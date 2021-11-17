@@ -1,8 +1,8 @@
 package com.smile.auth.controller;
 
 import com.smile.auth.service.AuthRegisterService;
-import com.smile.auth.vo.UmsMemberVo;
-import com.smile.common.core.domain.Res;
+import com.smile.auth.vo.SysUserVo;
+import com.smile.common.core.domain.R;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -22,11 +22,11 @@ public class RegisterController {
 
     /**
      * 注册
-     * @param umsMemberVo 注册对象
+     * @param syUserVo 注册对象
      * @return 响应
      */
     @PostMapping("/register")
-    public Res doRegister(@RequestBody UmsMemberVo umsMemberVo){
-        return authRegisterService.doRegister(umsMemberVo);
+    public R doRegister(@RequestBody SysUserVo syUserVo){
+        return authRegisterService.doRegister(syUserVo);
     }
 }

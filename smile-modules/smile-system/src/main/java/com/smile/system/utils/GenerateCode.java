@@ -21,10 +21,10 @@ public class GenerateCode {
      * 数据源配置
      */
 
-    private static final String URL = "jdbc:mysql://192.168.56.10:30642/smile_ums";
+    private static final String URL = "jdbc:mysql://127.0.0.1:3306/smile_ums";
     private static final String USERNAME = "root";
     private static final String PASSWORD = "000000";
-
+    private static final String DIR = "C://Users//smile//Desktop";
     private static final DataSourceConfig.Builder DATA_SOURCE_CONFIG = new DataSourceConfig.Builder(URL, USERNAME, PASSWORD);
 
     public static void main(String[] args) {
@@ -39,7 +39,7 @@ public class GenerateCode {
                                         .fileOverride()  //覆盖
                                         .dateType(DateType.TIME_PACK)
                                         .commentDate("yyyy-MM-dd HH:mm:ss")
-                                        .outputDir("C://Users//smile//Desktop")
+                                        .outputDir(DIR)
                 )
                 // 包配置
                 .packageConfig(
@@ -92,8 +92,8 @@ public class GenerateCode {
                                         .enableActiveRecord() //开启 ActiveRecord 模型
                                         .versionColumnName("version") //乐观锁字段名(数据库)
                                         .versionPropertyName("version") //乐观锁属性名(实体)
-                                        .logicDeleteColumnName("statusflag") //逻辑删除字段名(数据库)
-                                        .logicDeletePropertyName("statusflag") //逻辑删除属性名(实体)
+                                        .logicDeleteColumnName("del_flag") //逻辑删除字段名(数据库)
+                                        .logicDeletePropertyName("del_flag") //逻辑删除属性名(实体)
                                         //.naming(NamingStrategy.no_change) //数据库表映射到实体的命名策略
                                         //.columnNaming(NamingStrategy.underline_to_camel) //数据库表字段映射到实体的命名策略
                                         .addSuperEntityColumns( "created_time", "updated_time")

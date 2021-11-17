@@ -1,7 +1,7 @@
 package com.smile.auth.service;
 
-import com.smile.auth.vo.UmsMemberVo;
-import com.smile.common.core.domain.Res;
+import cn.dev33.satoken.stp.SaTokenInfo;
+import com.smile.auth.vo.SysUserVo;
 
 /**
  * @author 张维麟
@@ -10,9 +10,8 @@ import com.smile.common.core.domain.Res;
 public interface AuthLoginService {
      /**
       * 登录
-      * @param umsMemberVo 登录
-      * @return  全局响应体
+      * @param syUserVo 登录
       */
-     Res doLogin(UmsMemberVo umsMemberVo) ;
+     SaTokenInfo doLogin(SysUserVo syUserVo) ;
 
 }
